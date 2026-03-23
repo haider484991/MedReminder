@@ -1,0 +1,89 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+*.tgz
+
+# EAS
+.easignore
+
+# Native build folders
+/ios/
+/android/
+.kotlin/
+
+# Metro
+.metro-health-check*
+
+# Debug logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Environment variables
+.env
+.env.*
+.env*.local
+!.env.example
+
+# Secrets & certificates
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+*.mobileprovision
+*.keystore
+credentials.json
+google-services.json
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Build output
+build/
+*.orig.*
+
+# Testing
+coverage/
+.jest/
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Package lock (keep package-lock.json, ignore yarn.lock if using npm)
+yarn.lock
+
+# Stitch design files (not shipped with app)
+# stitch/

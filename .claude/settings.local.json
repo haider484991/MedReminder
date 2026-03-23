@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find C:/Projects -iname *med* -o -iname *reminder*)",
+      "Bash(npx:*)",
+      "Bash(cp -r /tmp/dosely-temp/* /c/Projects/MedReminder/)",
+      "Bash(cp /tmp/dosely-temp/.gitignore /c/Projects/MedReminder/)",
+      "Bash(npm install:*)",
+      "Bash(node -e \"const p = require\\(''/c/Projects/MedReminder/node_modules/nativewind/package.json''\\); console.log\\(p.version\\)\")",
+      "Bash(node:*)",
+      "Bash(grep -r \"TODO\\\\|FIXME\\\\|XXX\\\\|HACK\" /c/Projects/MedReminder/src --include=*.ts --include=*.tsx)",
+      "Bash(grep:*)",
+      "Bash(wc -l src/**/*.ts src/**/*.tsx)",
+      "Bash(git init:*)"
+    ]
+  }
+}
