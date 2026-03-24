@@ -14,7 +14,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import * as Haptics from "expo-haptics";
 import { Header, ProgressCircle, DoseCard } from "../components";
 import { colors } from "../theme";
-import { getMedications } from "../data/medications";
+import { getMedications, decrementStock } from "../data/medications";
 import { logDose } from "../data/doseLogs";
 import { getUpcomingDoses, getDailyProgress } from "../data/scheduler";
 import { useActiveProfile } from "../data/ProfileContext";
@@ -66,6 +66,10 @@ export function DashboardScreen() {
   const handleTake = async (dose: UpcomingDose) => {
     try { Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success); } catch {}
     await logDose(profileId, dose.medication.id, dose.scheduledTime.toISOString(), "taken");
+    // Decrement stock if tracked
+    if (dose.medication.stockCount !== undefined) {
+      await decrementStock(dose.medication.id);
+    }
     await loadData();
   };
 
@@ -180,7 +184,7 @@ export function DashboardScreen() {
               <Text style={{ color: "#fff", fontSize: 20, fontFamily: "Manrope_700Bold", marginBottom: 8 }}>
                 Refill Reminder
               </Text>
-              <Text style={{ color: "rgba(216, 226, 255, 0.8)", fontSize: 14, fontFamily: "PlusJakartaSans_400Regular", marginBottom: 16 }}>
+              <Text style={{ color: "rgba(214, 230, 245, 0.8)", fontSize: 14, fontFamily: "PlusJakartaSans_400Regular", marginBottom: 16 }}>
                 You have {lowStockMed.stockCount} pills of {lowStockMed.name} remaining.
               </Text>
               <View style={{ backgroundColor: "#fff", alignSelf: "flex-start", paddingHorizontal: 24, paddingVertical: 10, borderRadius: 9999 }}>

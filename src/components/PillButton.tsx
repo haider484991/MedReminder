@@ -32,7 +32,7 @@ export function PillButton({
     return (
       <TouchableOpacity
         onPress={onPress}
-        style={[{ width: "100%", borderRadius: 9999, paddingVertical: 20, flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 12, backgroundColor: "rgba(186, 26, 26, 0.08)" }, style]}
+        style={[{ width: "100%", borderRadius: 9999, paddingVertical: 20, flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 12, backgroundColor: "rgba(214, 64, 69, 0.08)" }, style]}
         activeOpacity={0.7}
       >
         <Text

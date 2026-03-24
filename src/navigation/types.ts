@@ -5,6 +5,7 @@ export type RootStackParamList = {
   MedicationDetail: { medicationId: string };
   AddMedication: { medication?: Medication };
   ManageProfiles: undefined;
+  About: undefined;
 };
 
 export type MainTabParamList = {

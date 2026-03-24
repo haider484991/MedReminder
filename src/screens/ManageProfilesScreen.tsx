@@ -170,7 +170,7 @@ export function ManageProfilesScreen() {
                   padding: 20,
                   borderRadius: 24,
                   backgroundColor: isActive
-                    ? "rgba(0, 88, 188, 0.06)"
+                    ? "rgba(91, 143, 185, 0.06)"
                     : colors.surfaceContainerLowest,
                   borderWidth: isActive ? 2 : 0,
                   borderColor: isActive ? colors.primary : "transparent",
@@ -295,7 +295,7 @@ export function ManageProfilesScreen() {
                         paddingVertical: 12,
                         borderRadius: 9999,
                         backgroundColor: isSelected
-                          ? "rgba(0, 88, 188, 0.1)"
+                          ? "rgba(91, 143, 185, 0.1)"
                           : colors.surfaceContainerHighest,
                         borderWidth: isSelected ? 2 : 0,
                         borderColor: isSelected

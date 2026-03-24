@@ -123,11 +123,40 @@ export function AddMedicationScreen() {
     };
 
     if (isEditing && existingMed) {
-      await updateMedication(existingMed.id, medData);
+      const updated = await updateMedication(existingMed.id, medData);
+      // Reschedule notifications for edited medication
+      if (updated) {
+        try {
+          const notif = await import("../services/notifications");
+          await notif.scheduleMedicationNotifications(updated);
+        } catch {}
+      }
+      navigation.goBack();
     } else {
-      await addMedication(medData);
+      const newMed = await addMedication(medData);
+      // Schedule notifications for new medication
+      try {
+        const notif = await import("../services/notifications");
+        await notif.scheduleMedicationNotifications(newMed);
+      } catch {}
+      // Reset form
+      setName("");
+      setDosageAmount("");
+      setDosageUnit("mg");
+      setForm("Tablet");
+      setStockCount("");
+      setFrequency("daily");
+      setSelectedTimes([]);
+      setCustomTimes({} as Record<TimeOfDay, string>);
+      setSelectedDays([]);
+      setInstructions("");
+      // Navigate to Dashboard to show the new medication
+      Alert.alert(
+        "Medication Added",
+        `${medData.name} has been added to your routine.`,
+        [{ text: "OK", onPress: () => (navigation as any).navigate("Dashboard") }]
+      );
     }
-    navigation.goBack();
   };
 
   return (
@@ -297,7 +326,7 @@ export function AddMedicationScreen() {
                       borderRadius: 9999,
                       borderWidth: 2,
                       borderColor: frequency === f ? colors.primary : "transparent",
-                      backgroundColor: frequency === f ? "rgba(0, 88, 188, 0.05)" : colors.surfaceContainerHighest,
+                      backgroundColor: frequency === f ? "rgba(91, 143, 185, 0.05)" : colors.surfaceContainerHighest,
                     }}
                   >
                     <MaterialIcons
@@ -466,7 +495,7 @@ export function AddMedicationScreen() {
           }}
         >
           <View style={{ flexDirection: "row", alignItems: "flex-start", gap: 16 }}>
-            <View style={{ padding: 12, borderRadius: 9999, backgroundColor: "rgba(0, 107, 39, 0.1)" }}>
+            <View style={{ padding: 12, borderRadius: 9999, backgroundColor: "rgba(46, 158, 94, 0.1)" }}>
               <MaterialIcons name="notes" size={24} color={colors.tertiary} />
             </View>
             <View style={{ flex: 1 }}>

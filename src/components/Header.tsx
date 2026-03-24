@@ -1,9 +1,12 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
 import { colors } from "../theme";
 import { ProfileSwitcher } from "./ProfileSwitcher";
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const logoImage = require("../../assets/icon.png");
 
 interface HeaderProps {
   showBack?: boolean;
@@ -34,18 +37,12 @@ export function Header({ showBack, onBack, rightElement, hideProfileSwitcher }: 
             <MaterialIcons name="arrow-back" size={24} color={colors.onSurfaceVariant} />
           </TouchableOpacity>
         )}
-        {/* Logo: Pill icon + text */}
-        <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
-          <View style={{
-            width: 28,
-            height: 28,
-            borderRadius: 8,
-            backgroundColor: colors.primary,
-            alignItems: "center",
-            justifyContent: "center",
-          }}>
-            <MaterialIcons name="favorite" size={16} color="#fff" />
-          </View>
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+          <Image
+            source={logoImage}
+            style={{ width: 32, height: 32, borderRadius: 8 }}
+            resizeMode="contain"
+          />
           <Text style={{ color: colors.primary, fontSize: 24, fontFamily: "Manrope_700Bold" }}>
             Dosely
           </Text>

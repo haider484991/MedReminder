@@ -11,7 +11,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { colors } from "../theme";
-import { getMedicationById, deleteMedication } from "../data/medications";
+import { getMedicationById, deleteMedication, updateMedication } from "../data/medications";
 import { getAdherenceRate } from "../data/doseLogs";
 import { getDefaultTime } from "../data/scheduler";
 import { formatTime } from "../utils/dates";
@@ -118,7 +118,7 @@ export function MedicationDetailScreen() {
             {med.dosageAmount}{med.dosageUnit} {"\u2022"} {med.form}
           </Text>
           {med.stockCount !== undefined && (
-            <View style={{ flexDirection: "row", alignItems: "center", gap: 6, marginTop: 12, paddingHorizontal: 14, paddingVertical: 6, borderRadius: 12, backgroundColor: "rgba(0, 88, 188, 0.06)", alignSelf: "flex-start" }}>
+            <View style={{ flexDirection: "row", alignItems: "center", gap: 6, marginTop: 12, paddingHorizontal: 14, paddingVertical: 6, borderRadius: 12, backgroundColor: "rgba(91, 143, 185, 0.06)", alignSelf: "flex-start" }}>
               <MaterialIcons name="inventory-2" size={16} color={colors.primary} />
               <Text style={{ color: colors.onSurface, fontSize: 14, fontFamily: "PlusJakartaSans_600SemiBold" }}>
                 {med.stockCount} pills left
@@ -129,33 +129,76 @@ export function MedicationDetailScreen() {
 
         {/* Refill Reminder */}
         <View style={{ backgroundColor: colors.surfaceContainerLow, borderRadius: 24, padding: 20, flexDirection: "row", alignItems: "center", gap: 12, marginBottom: 16 }}>
-          <View style={{ padding: 10, borderRadius: 16, backgroundColor: "rgba(0, 88, 188, 0.1)" }}>
-            <MaterialIcons name="notifications-active" size={22} color={colors.primary} />
+          <View style={{ padding: 10, borderRadius: 16, backgroundColor: med.refillAlertAt ? "rgba(46, 158, 94, 0.1)" : "rgba(91, 143, 185, 0.1)" }}>
+            <MaterialIcons
+              name={med.refillAlertAt ? "notifications-active" : "notifications-none"}
+              size={22}
+              color={med.refillAlertAt ? colors.tertiary : colors.primary}
+            />
           </View>
           <View style={{ flex: 1, marginRight: 8 }}>
-            <Text style={{ color: colors.onSurface, fontSize: 15, fontFamily: "Manrope_700Bold" }}>Refill Reminder</Text>
+            <Text style={{ color: colors.onSurface, fontSize: 15, fontFamily: "Manrope_700Bold" }}>
+              Refill Reminder
+            </Text>
             <Text style={{ color: colors.onSurfaceVariant, fontSize: 12, fontFamily: "PlusJakartaSans_400Regular" }}>
-              Notify when {med.refillAlertAt || 5} pills remain
+              {med.refillAlertAt
+                ? `Alert when ${med.refillAlertAt} pills remain`
+                : "Get notified when stock is low"}
             </Text>
           </View>
-          <TouchableOpacity activeOpacity={0.85}>
+          <TouchableOpacity
+            activeOpacity={0.85}
+            onPress={async () => {
+              if (med.refillAlertAt) {
+                // Turn off alert
+                await updateMedication(med.id, { refillAlertAt: undefined });
+                setMed({ ...med, refillAlertAt: undefined });
+                Alert.alert("Alert Removed", "Refill reminder has been turned off.");
+              } else {
+                // Turn on alert — ask for threshold
+                Alert.alert(
+                  "Set Refill Alert",
+                  "We'll remind you when your stock is running low.",
+                  [
+                    { text: "Cancel", style: "cancel" },
+                    {
+                      text: "At 5 pills",
+                      onPress: async () => {
+                        await updateMedication(med.id, { refillAlertAt: 5 });
+                        setMed({ ...med, refillAlertAt: 5 });
+                      },
+                    },
+                    {
+                      text: "At 10 pills",
+                      onPress: async () => {
+                        await updateMedication(med.id, { refillAlertAt: 10 });
+                        setMed({ ...med, refillAlertAt: 10 });
+                      },
+                    },
+                  ]
+                );
+              }
+            }}
+          >
             <LinearGradient
-              colors={[colors.primary, colors.primaryContainer]}
+              colors={med.refillAlertAt ? [colors.tertiary, colors.tertiaryContainer] : [colors.primary, colors.primaryContainer]}
               style={{ paddingHorizontal: 16, paddingVertical: 10, borderRadius: 9999 }}
             >
-              <Text style={{ color: "#fff", fontSize: 12, fontFamily: "PlusJakartaSans_700Bold" }}>Set Alert</Text>
+              <Text style={{ color: "#fff", fontSize: 12, fontFamily: "PlusJakartaSans_700Bold" }}>
+                {med.refillAlertAt ? "On" : "Set Alert"}
+              </Text>
             </LinearGradient>
           </TouchableOpacity>
         </View>
 
         {/* Stats */}
         <View style={{ flexDirection: "row", gap: 12, marginBottom: 32 }}>
-          <View style={{ flex: 1, borderRadius: 24, padding: 20, backgroundColor: colors.surfaceContainerLowest, borderWidth: 1, borderColor: "rgba(193, 198, 215, 0.1)" }}>
+          <View style={{ flex: 1, borderRadius: 24, padding: 20, backgroundColor: colors.surfaceContainerLowest, borderWidth: 1, borderColor: "rgba(191, 196, 212, 0.1)" }}>
             <MaterialIcons name="check-circle" size={24} color={colors.tertiary} style={{ marginBottom: 12 }} />
             <Text style={{ color: colors.onSurfaceVariant, fontSize: 10, fontFamily: "PlusJakartaSans_700Bold", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4 }}>Adherence</Text>
             <Text style={{ color: colors.onSurface, fontSize: 28, fontFamily: "Manrope_800ExtraBold" }}>{adherence}%</Text>
           </View>
-          <View style={{ flex: 1, borderRadius: 24, padding: 20, backgroundColor: colors.surfaceContainerLowest, borderWidth: 1, borderColor: "rgba(193, 198, 215, 0.1)" }}>
+          <View style={{ flex: 1, borderRadius: 24, padding: 20, backgroundColor: colors.surfaceContainerLowest, borderWidth: 1, borderColor: "rgba(191, 196, 212, 0.1)" }}>
             <MaterialIcons name="schedule" size={24} color={colors.secondary} style={{ marginBottom: 12 }} />
             <Text style={{ color: colors.onSurfaceVariant, fontSize: 10, fontFamily: "PlusJakartaSans_700Bold", textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4 }}>Next Dose</Text>
             <Text style={{ color: colors.onSurface, fontSize: 28, fontFamily: "Manrope_800ExtraBold" }}>{nextDoseTime}</Text>
@@ -171,8 +214,8 @@ export function MedicationDetailScreen() {
             </View>
             <View style={{ gap: 12 }}>
               {instructionsList.map((inst, i) => (
-                <View key={i} style={{ flexDirection: "row", gap: 16, padding: 16, borderRadius: 16, backgroundColor: "rgba(241, 243, 254, 0.5)" }}>
-                  <Text style={{ fontSize: 22, fontFamily: "Manrope_800ExtraBold", color: "rgba(0, 88, 188, 0.3)", lineHeight: 26 }}>
+                <View key={i} style={{ flexDirection: "row", gap: 16, padding: 16, borderRadius: 16, backgroundColor: "rgba(242, 244, 249, 0.5)" }}>
+                  <Text style={{ fontSize: 22, fontFamily: "Manrope_800ExtraBold", color: "rgba(91, 143, 185, 0.3)", lineHeight: 26 }}>
                     {String(i + 1).padStart(2, "0")}
                   </Text>
                   <Text style={{ color: colors.onSurface, flex: 1, fontFamily: "PlusJakartaSans_500Medium", lineHeight: 22, fontSize: 14 }}>{inst}</Text>
@@ -231,7 +274,7 @@ export function MedicationDetailScreen() {
             gap: 8,
             paddingVertical: 16,
             borderRadius: 9999,
-            backgroundColor: "rgba(186, 26, 26, 0.08)",
+            backgroundColor: "rgba(214, 64, 69, 0.08)",
           }}
           activeOpacity={0.7}
         >

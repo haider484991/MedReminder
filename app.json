@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#f9f9ff"
+      "backgroundColor": "#F8F9FC"
     },
     "ios": {
       "supportsTablet": true,
@@ -17,12 +17,13 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#f9f9ff",
+        "backgroundColor": "#F8F9FC",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "package": "com.dosely.app",
+      "versionCode": 1,
       "permissions": [
         "SCHEDULE_EXACT_ALARM",
         "RECEIVE_BOOT_COMPLETED",
@@ -43,6 +44,11 @@
         }
       ],
       "expo-local-authentication"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": ""
+      }
+    }
   }
 }

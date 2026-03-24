@@ -39,7 +39,7 @@ export function DoseCard({ dose, onTake, onSkip, onPress }: DoseCardProps) {
           gap: 16,
           padding: 20,
           borderRadius: 24,
-          backgroundColor: "rgba(0, 135, 51, 0.1)",
+          backgroundColor: "rgba(55, 184, 109, 0.1)",
         }}
       >
         <View style={{ width: 56, height: 56, borderRadius: 16, backgroundColor: colors.tertiaryContainer, alignItems: "center", justifyContent: "center" }}>
@@ -56,7 +56,7 @@ export function DoseCard({ dose, onTake, onSkip, onPress }: DoseCardProps) {
             {medication.dosageAmount}{medication.dosageUnit} {"\u2022"} {medication.form}
           </Text>
         </View>
-        <View style={{ paddingHorizontal: 12, paddingVertical: 4, borderRadius: 9999, backgroundColor: "rgba(0, 135, 51, 0.2)" }}>
+        <View style={{ paddingHorizontal: 12, paddingVertical: 4, borderRadius: 9999, backgroundColor: "rgba(55, 184, 109, 0.2)" }}>
           <Text style={{ color: colors.tertiary, fontSize: 10, fontFamily: "PlusJakartaSans_700Bold", textTransform: "uppercase", letterSpacing: 1.5 }}>
             Taken
           </Text>

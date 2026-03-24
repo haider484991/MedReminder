@@ -4,6 +4,7 @@ import { MainTabs } from "./MainTabs";
 import { MedicationDetailScreen } from "../screens/MedicationDetailScreen";
 import { AddMedicationScreen } from "../screens/AddMedicationScreen";
 import { ManageProfilesScreen } from "../screens/ManageProfilesScreen";
+import { AboutScreen } from "../screens/AboutScreen";
 import type { RootStackParamList } from "./types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -33,6 +34,13 @@ export function RootNavigator() {
         options={{
           animation: "slide_from_bottom",
           presentation: "modal",
+        }}
+      />
+      <Stack.Screen
+        name="About"
+        component={AboutScreen}
+        options={{
+          animation: "slide_from_right",
         }}
       />
     </Stack.Navigator>

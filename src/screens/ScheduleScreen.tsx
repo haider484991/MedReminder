@@ -208,11 +208,11 @@ export function ScheduleScreen() {
                       borderRadius: 24,
                       padding: 24,
                       backgroundColor: allTaken
-                        ? "#f0fff4"
+                        ? "#f0f9f4"
                         : colors.surfaceContainerLowest,
                       borderWidth: allTaken ? 1 : 0,
                       borderColor: allTaken
-                        ? "rgba(0, 135, 51, 0.1)"
+                        ? "rgba(55, 184, 109, 0.1)"
                         : "transparent",
                       shadowColor: allTaken ? "transparent" : colors.onSurface,
                       shadowOffset: { width: 0, height: 8 },
@@ -321,8 +321,8 @@ export function ScheduleScreen() {
                         paddingTop: 16,
                         borderTopWidth: 1,
                         borderTopColor: allTaken
-                          ? "rgba(0, 135, 51, 0.1)"
-                          : "rgba(193, 198, 215, 0.1)",
+                          ? "rgba(55, 184, 109, 0.1)"
+                          : "rgba(191, 196, 212, 0.1)",
                       }}
                     >
                       <View style={{ gap: 4 }}>

@@ -1,47 +1,59 @@
+/**
+ * Dosely Color System
+ * Derived from logo: Steel Blue (#6A9ECB) + Coral Orange (#E8734A)
+ */
 export const colors = {
-  primary: "#0058bc",
-  primaryContainer: "#0070eb",
-  primaryFixed: "#d8e2ff",
-  primaryFixedDim: "#adc6ff",
+  // Primary — Steel Blue (left pill)
+  primary: "#5B8FB9",
+  primaryContainer: "#7BAFD4",
+  primaryFixed: "#D6E6F5",
+  primaryFixedDim: "#A3C7E2",
   onPrimary: "#ffffff",
-  onPrimaryContainer: "#fefcff",
+  onPrimaryContainer: "#f0f7ff",
 
-  secondary: "#405e96",
-  secondaryContainer: "#a1befd",
-  secondaryFixed: "#d8e2ff",
+  // Secondary — Coral Orange (right pill / accent)
+  secondary: "#E8734A",
+  secondaryContainer: "#F09A7A",
+  secondaryFixed: "#FDDDD1",
   onSecondary: "#ffffff",
 
-  tertiary: "#006b27",
-  tertiaryContainer: "#008733",
-  tertiaryFixed: "#72fe88",
-  tertiaryFixedDim: "#53e16f",
+  // Tertiary — Success green (kept for dose-taken states)
+  tertiary: "#2E9E5E",
+  tertiaryContainer: "#37B86D",
+  tertiaryFixed: "#C8F5D8",
+  tertiaryFixedDim: "#6ED898",
   onTertiary: "#ffffff",
-  onTertiaryContainer: "#f7fff2",
+  onTertiaryContainer: "#f0fff5",
 
-  error: "#ba1a1a",
-  errorContainer: "#ffdad6",
+  // Error
+  error: "#D64045",
+  errorContainer: "#FFE0E1",
   onError: "#ffffff",
-  onErrorContainer: "#93000a",
+  onErrorContainer: "#8C1D20",
 
-  surface: "#f9f9ff",
-  surfaceDim: "#d8d9e5",
-  surfaceBright: "#f9f9ff",
-  surfaceContainer: "#ecedf9",
-  surfaceContainerLow: "#f1f3fe",
+  // Surfaces — Warm neutral tint
+  surface: "#F8F9FC",
+  surfaceDim: "#D8DAE2",
+  surfaceBright: "#F8F9FC",
+  surfaceContainer: "#EEF0F6",
+  surfaceContainerLow: "#F2F4F9",
   surfaceContainerLowest: "#ffffff",
-  surfaceContainerHigh: "#e6e8f3",
-  surfaceContainerHighest: "#e0e2ed",
-  surfaceVariant: "#e0e2ed",
+  surfaceContainerHigh: "#E6E8F0",
+  surfaceContainerHighest: "#DFE1EA",
+  surfaceVariant: "#DFE1EA",
 
-  onSurface: "#181c23",
-  onSurfaceVariant: "#414755",
-  onBackground: "#181c23",
-  background: "#f9f9ff",
+  // Text
+  onSurface: "#1A1D24",
+  onSurfaceVariant: "#454B5C",
+  onBackground: "#1A1D24",
+  background: "#F8F9FC",
 
-  outline: "#717786",
-  outlineVariant: "#c1c6d7",
+  // Outlines
+  outline: "#6E7587",
+  outlineVariant: "#BFC4D4",
 
-  inverseSurface: "#2d3039",
-  inverseOnSurface: "#eef0fc",
-  inversePrimary: "#adc6ff",
+  // Inverse
+  inverseSurface: "#2C2F38",
+  inverseOnSurface: "#EEF0F8",
+  inversePrimary: "#A3C7E2",
 } as const;

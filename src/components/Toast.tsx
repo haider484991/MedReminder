@@ -13,9 +13,9 @@ interface ToastProps {
 }
 
 const ICONS: Record<string, { name: keyof typeof MaterialIcons.glyphMap; color: string; bg: string }> = {
-  success: { name: "check-circle", color: colors.tertiary, bg: "rgba(0, 107, 39, 0.1)" },
-  error: { name: "error", color: colors.error, bg: "rgba(186, 26, 26, 0.1)" },
-  info: { name: "info", color: colors.primary, bg: "rgba(0, 88, 188, 0.1)" },
+  success: { name: "check-circle", color: colors.tertiary, bg: "rgba(46, 158, 94, 0.1)" },
+  error: { name: "error", color: colors.error, bg: "rgba(214, 64, 69, 0.1)" },
+  info: { name: "info", color: colors.primary, bg: "rgba(91, 143, 185, 0.1)" },
 };
 
 export function Toast({ message, visible, type = "success", onHide, duration = 2000 }: ToastProps) {

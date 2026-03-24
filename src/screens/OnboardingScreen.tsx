@@ -4,6 +4,7 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
+  Image,
   Dimensions,
   FlatList,
   Animated,
@@ -18,6 +19,9 @@ import { useActiveProfile } from "../data/ProfileContext";
 
 const { width } = Dimensions.get("window");
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const logoImage = require("../../assets/icon.png");
+
 interface OnboardingProps {
   onComplete: () => void;
 }
@@ -25,8 +29,9 @@ interface OnboardingProps {
 const SLIDES = [
   {
     icon: "favorite" as const,
+    useLogo: true,
     title: "Welcome to\nDosely",
-    subtitle: "Your personal medication companion. Simple, reliable, and beautiful.",
+    subtitle: "Your personal medication companion. Simple, reliable, and beautiful.\n\nNote: Dosely is not a medical device. Always consult your healthcare professional.",
     color: colors.primary,
   },
   {
@@ -74,10 +79,9 @@ export function OnboardingScreen({ onComplete }: OnboardingProps) {
       <View style={{ flex: 1, backgroundColor: colors.surface, paddingTop: insets.top }}>
         <View style={{ flex: 1, paddingHorizontal: 32, justifyContent: "center" }}>
           <View style={{
-            width: 64, height: 64, borderRadius: 20, backgroundColor: colors.primary,
-            alignItems: "center", justifyContent: "center", marginBottom: 32,
+            width: 64, height: 64, borderRadius: 16, marginBottom: 32,
           }}>
-            <MaterialIcons name="person" size={32} color="#fff" />
+            <Image source={logoImage} style={{ width: 64, height: 64, borderRadius: 16 }} resizeMode="contain" />
           </View>
           <Text style={{ fontSize: 36, fontFamily: "Manrope_800ExtraBold", color: colors.onSurface, letterSpacing: -0.5, marginBottom: 12 }}>
             What's your{"\n"}name?
@@ -143,14 +147,26 @@ export function OnboardingScreen({ onComplete }: OnboardingProps) {
         }}
         renderItem={({ item }) => (
           <View style={{ width, flex: 1, paddingHorizontal: 32, justifyContent: "center", paddingTop: insets.top + 60 }}>
-            <View style={{
-              width: 80, height: 80, borderRadius: 24,
-              backgroundColor: item.color, alignItems: "center", justifyContent: "center",
-              marginBottom: 40, shadowColor: item.color, shadowOffset: { width: 0, height: 8 },
-              shadowOpacity: 0.3, shadowRadius: 20, elevation: 8,
-            }}>
-              <MaterialIcons name={item.icon} size={40} color="#fff" />
-            </View>
+            {(item as any).useLogo ? (
+              <Image
+                source={logoImage}
+                style={{
+                  width: 80, height: 80, borderRadius: 20, marginBottom: 40,
+                  shadowColor: item.color, shadowOffset: { width: 0, height: 8 },
+                  shadowOpacity: 0.3, shadowRadius: 20,
+                }}
+                resizeMode="contain"
+              />
+            ) : (
+              <View style={{
+                width: 80, height: 80, borderRadius: 24,
+                backgroundColor: item.color, alignItems: "center", justifyContent: "center",
+                marginBottom: 40, shadowColor: item.color, shadowOffset: { width: 0, height: 8 },
+                shadowOpacity: 0.3, shadowRadius: 20, elevation: 8,
+              }}>
+                <MaterialIcons name={item.icon} size={40} color="#fff" />
+              </View>
+            )}
             <Text style={{ fontSize: 42, fontFamily: "Manrope_800ExtraBold", color: colors.onSurface, letterSpacing: -1, lineHeight: 48, marginBottom: 20 }}>
               {item.title}
             </Text>

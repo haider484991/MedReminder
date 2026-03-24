@@ -3,8 +3,8 @@ import { getItem, setItem, KEYS } from "./storage";
 import type { FamilyProfile, ProfileRelation } from "./types";
 
 const PROFILE_COLORS = [
-  "#0058bc", // primary blue
-  "#006b27", // green
+  "#5B8FB9", // logo blue
+  "#2E9E5E", // green
   "#8b5cf6", // purple
   "#e11d48", // rose
   "#ea580c", // orange

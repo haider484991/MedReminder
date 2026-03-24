@@ -120,7 +120,7 @@ export function ProfileSwitcher() {
                       borderRadius: 16,
                       marginBottom: 8,
                       backgroundColor: isActive
-                        ? "rgba(0, 88, 188, 0.08)"
+                        ? "rgba(91, 143, 185, 0.08)"
                         : "transparent",
                     }}
                     activeOpacity={0.7}
@@ -180,7 +180,7 @@ export function ProfileSwitcher() {
               activeOpacity={0.7}
             >
               <View
-                style={{ width: 48, height: 48, borderRadius: 9999, alignItems: "center", justifyContent: "center", backgroundColor: "rgba(0, 88, 188, 0.1)" }}
+                style={{ width: 48, height: 48, borderRadius: 9999, alignItems: "center", justifyContent: "center", backgroundColor: "rgba(91, 143, 185, 0.1)" }}
               >
                 <MaterialIcons name="group-add" size={24} color={colors.primary} />
               </View>
