@@ -23,7 +23,7 @@ import { OnboardingScreen } from "./src/screens/OnboardingScreen";
 import { getMedications, getMedicationById, decrementStock } from "./src/data/medications";
 import { logDose } from "./src/data/doseLogs";
 import { getProfile } from "./src/data/profile";
-import "./global.css";
+// import "./global.css"; // NativeWind disabled — using inline styles
 
 const ONBOARDING_KEY = "@dosely/onboarding_complete";
 
