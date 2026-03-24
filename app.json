@@ -2,6 +2,7 @@
   "expo": {
     "name": "Dosely",
     "slug": "dosely",
+    "owner": "hayder48",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -47,7 +48,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": ""
+        "projectId": "e06080ef-80c8-4c5c-9f81-882993ccccde"
       }
     }
   }
