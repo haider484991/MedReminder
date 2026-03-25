@@ -25,7 +25,7 @@ import { logDose } from "./src/data/doseLogs";
 import { getProfile } from "./src/data/profile";
 // import "./global.css"; // NativeWind disabled — using inline styles
 
-const ONBOARDING_KEY = "@dosely/onboarding_complete";
+const ONBOARDING_KEY = "@dosewise/onboarding_complete";
 
 SplashScreen.preventAutoHideAsync();
 

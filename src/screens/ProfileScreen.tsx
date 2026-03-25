@@ -375,7 +375,7 @@ export function ProfileScreen() {
             <Text style={{ color: colors.error, fontSize: 16, fontFamily: "PlusJakartaSans_700Bold" }}>Log Out</Text>
           </TouchableOpacity>
           <Text style={{ marginTop: 24, fontSize: 12, opacity: 0.5, fontFamily: "PlusJakartaSans_500Medium", color: colors.onSurfaceVariant }}>
-            Dosely Version 1.0.0 (Build 1)
+            DoseWise Version 1.0.0 (Build 1)
           </Text>
         </View>
       </ScrollView>

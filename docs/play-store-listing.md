@@ -1,16 +1,16 @@
-# Dosely - Play Store Listing
+# DoseWise - Play Store Listing
 
 ## App Name
-Dosely - Pill & Medication Reminder
+DoseWise - Pill & Medication Reminder
 
 ## Short Description (80 chars max)
 Never miss a dose. Simple medication reminders for you and your family.
 
 ## Full Description (4000 chars max)
 
-Dosely is not a medical device and does not diagnose, treat, cure, or prevent any medical condition. Always consult a healthcare professional for medical advice, diagnosis, or treatment.
+DoseWise is not a medical device and does not diagnose, treat, cure, or prevent any medical condition. Always consult a healthcare professional for medical advice, diagnosis, or treatment.
 
-Dosely is a beautifully designed medication reminder app that helps you and your family stay on top of medication schedules. Whether you're managing your own prescriptions, tracking vitamins, or caring for a family member's health routine — Dosely makes it simple and reliable.
+DoseWise is a beautifully designed medication reminder app that helps you and your family stay on top of medication schedules. Whether you're managing your own prescriptions, tracking vitamins, or caring for a family member's health routine — DoseWise makes it simple and reliable.
 
 💊 SIMPLE MEDICATION MANAGEMENT
 • Add medications with name, dosage, form (tablet, capsule, liquid, and more)
@@ -61,9 +61,9 @@ PREMIUM FEATURES:
 ★ Export medication history
 ★ Custom notification sounds
 
-Dosely is built with care for people who care about their health. We believe medication management should be simple, reliable, and beautiful — not complicated or clinical.
+DoseWise is built with care for people who care about their health. We believe medication management should be simple, reliable, and beautiful — not complicated or clinical.
 
-Download Dosely today and never miss a dose again.
+Download DoseWise today and never miss a dose again.
 
 ---
 
@@ -74,7 +74,7 @@ Health & Fitness
 medication reminder, pill reminder, medicine reminder, pill tracker, medication tracker, medicine alarm, dose tracker, refill reminder, pill organizer, health tracker, medication schedule, family medication tracker
 
 ## Contact Email
-support@dosely.app
+haider484991@gmail.com
 
 ## Privacy Policy URL
 https://haider484991.github.io/MedReminder/privacy-policy.html

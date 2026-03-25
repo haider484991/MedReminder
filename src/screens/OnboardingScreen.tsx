@@ -30,8 +30,8 @@ const SLIDES = [
   {
     icon: "favorite" as const,
     useLogo: true,
-    title: "Welcome to\nDosely",
-    subtitle: "Your personal medication companion. Simple, reliable, and beautiful.\n\nNote: Dosely is not a medical device. Always consult your healthcare professional.",
+    title: "Welcome to\nDoseWise",
+    subtitle: "Your personal medication companion. Simple, reliable, and beautiful.\n\nNote: DoseWise is not a medical device. Always consult your healthcare professional.",
     color: colors.primary,
   },
   {

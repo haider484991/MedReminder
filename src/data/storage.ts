@@ -1,10 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const KEYS = {
-  MEDICATIONS: "@dosely/medications",
-  DOSE_LOGS: "@dosely/dose_logs",
-  PROFILE: "@dosely/profile",
-  FAMILY_PROFILES: "@dosely/family_profiles",
+  MEDICATIONS: "@dosewise/medications",
+  DOSE_LOGS: "@dosewise/dose_logs",
+  PROFILE: "@dosewise/profile",
+  FAMILY_PROFILES: "@dosewise/family_profiles",
 } as const;
 
 export async function getItem<T>(key: string): Promise<T | null> {

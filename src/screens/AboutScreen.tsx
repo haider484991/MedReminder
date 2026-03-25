@@ -27,7 +27,7 @@ export function AboutScreen() {
         <TouchableOpacity onPress={() => navigation.goBack()} style={{ padding: 8, borderRadius: 9999 }}>
           <MaterialIcons name="arrow-back" size={24} color={colors.onSurfaceVariant} />
         </TouchableOpacity>
-        <Text style={{ color: colors.primary, fontSize: 20, fontFamily: "Manrope_700Bold" }}>About Dosely</Text>
+        <Text style={{ color: colors.primary, fontSize: 20, fontFamily: "Manrope_700Bold" }}>About DoseWise</Text>
       </View>
 
       <ScrollView
@@ -42,7 +42,7 @@ export function AboutScreen() {
               <MaterialIcons name="favorite" size={36} color="#fff" />
             </View>
           </View>
-          <Text style={{ fontSize: 28, fontFamily: "Manrope_800ExtraBold", color: colors.onSurface }}>Dosely</Text>
+          <Text style={{ fontSize: 28, fontFamily: "Manrope_800ExtraBold", color: colors.onSurface }}>DoseWise</Text>
           <Text style={{ fontSize: 14, fontFamily: "PlusJakartaSans_400Regular", color: colors.onSurfaceVariant, marginTop: 4 }}>
             Version 1.0.0 (Build 1)
           </Text>
@@ -60,7 +60,7 @@ export function AboutScreen() {
             <Text style={{ fontSize: 16, fontFamily: "Manrope_700Bold", color: colors.onSurface }}>Medical Disclaimer</Text>
           </View>
           <Text style={{ fontSize: 14, fontFamily: "PlusJakartaSans_400Regular", color: colors.onSurfaceVariant, lineHeight: 22 }}>
-            Dosely is not a medical device and does not diagnose, treat, cure, or prevent any medical condition. This app is intended solely as a reminder and organizational tool.{"\n\n"}Always consult a qualified healthcare professional for medical advice, diagnosis, or treatment. Do not rely solely on this app for critical medication management.
+            DoseWise is not a medical device and does not diagnose, treat, cure, or prevent any medical condition. This app is intended solely as a reminder and organizational tool.{"\n\n"}Always consult a qualified healthcare professional for medical advice, diagnosis, or treatment. Do not rely solely on this app for critical medication management.
           </Text>
         </View>
 
@@ -89,7 +89,7 @@ export function AboutScreen() {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => openLink("mailto:support@dosely.app")}
+            onPress={() => openLink("mailto:haider484991@gmail.com")}
             style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", padding: 20, borderTopWidth: 1, borderTopColor: `${colors.outlineVariant}20` }}
           >
             <View style={{ flexDirection: "row", alignItems: "center", gap: 16 }}>
@@ -103,12 +103,12 @@ export function AboutScreen() {
         {/* Healthcare Reminder */}
         <View style={{ backgroundColor: colors.primaryFixed, borderRadius: 20, padding: 20, marginBottom: 24 }}>
           <Text style={{ fontSize: 13, fontFamily: "PlusJakartaSans_600SemiBold", color: colors.primary, lineHeight: 20 }}>
-            Always consult your healthcare professional before starting, stopping, or changing any medication. Dosely is designed to help you remember — your doctor is the expert.
+            Always consult your healthcare professional before starting, stopping, or changing any medication. DoseWise is designed to help you remember — your doctor is the expert.
           </Text>
         </View>
 
         <Text style={{ textAlign: "center", fontSize: 12, color: colors.onSurfaceVariant, opacity: 0.6, fontFamily: "PlusJakartaSans_400Regular" }}>
-          Made with care for your health.{"\n"}© 2026 Dosely. All rights reserved.
+          Made with care for your health.{"\n"}© 2026 DoseWise. All rights reserved.
         </Text>
       </ScrollView>
     </View>

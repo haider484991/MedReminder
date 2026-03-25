@@ -75,7 +75,7 @@ export function MedicationDetailScreen() {
           <MaterialIcons name="arrow-back" size={24} color={colors.primary} />
         </TouchableOpacity>
         <Text style={{ color: colors.primary, fontSize: 20, fontFamily: "Manrope_700Bold" }}>
-          Dosely
+          DoseWise
         </Text>
         <TouchableOpacity
           onPress={() => navigation.navigate("AddMedication", { medication: med })}

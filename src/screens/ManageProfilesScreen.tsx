@@ -125,7 +125,7 @@ export function ManageProfilesScreen() {
           <Text
             style={{ color: colors.primary, fontSize: 24, fontFamily: "Manrope_700Bold" }}
           >
-            Dosely
+            DoseWise
           </Text>
         </View>
       </View>

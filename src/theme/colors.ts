@@ -1,5 +1,5 @@
 /**
- * Dosely Color System
+ * DoseWise Color System
  * Derived from logo: Steel Blue (#6A9ECB) + Coral Orange (#E8734A)
  */
 export const colors = {

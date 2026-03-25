@@ -44,7 +44,7 @@ export function Header({ showBack, onBack, rightElement, hideProfileSwitcher }: 
             resizeMode="contain"
           />
           <Text style={{ color: colors.primary, fontSize: 24, fontFamily: "Manrope_700Bold" }}>
-            Dosely
+            DoseWise
           </Text>
         </View>
       </View>
